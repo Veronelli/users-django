@@ -2,6 +2,7 @@
 ### This project about employees and each one got a area asigned, and password, name user.
 
 ## To do   
+```
 - ✔️ Do the python project.
 - ✔️ Create Users model.
 - ✔️ Create Areas model.
@@ -15,3 +16,4 @@
 - ❌ Create template for login
 - ❌ Create empleyees templete list
 - ❌ List that showes all areas  
+```
