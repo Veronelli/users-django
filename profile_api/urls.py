@@ -14,5 +14,6 @@ urlpatterns = [
     path('',include(router.urls)),
     path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
     path(r'swagger/', schema_view),
-    path('user/',views.UserViewSet.hola, name="Hola")
+    path('user/',views.UserViewSet.hola, name="Hola"),
+    path('login',views.Login.post)
 ]

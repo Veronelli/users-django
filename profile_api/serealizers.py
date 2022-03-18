@@ -19,6 +19,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
         
         user.save()
         return user
+    
+    def validPassword(password1,password2):
+        return check_password(password2,password1)
         
     class Meta:
         model = UserProfile
