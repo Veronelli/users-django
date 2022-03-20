@@ -10,7 +10,7 @@
 - ✔️ Do API REST to Users. (Very important)
 - ✔️ Do API REST to Area. (Very important)
 - ✔️ Add Swagger to the project.*
-- ❌ Create a middleware authenticate.
+- ✔️ Create a middleware authenticate.
 - ❌ Try to hide Area in Users and toggle.
 - ❌ Customize some query.
 - ❌ Start to do the front end with vue. (Very important)
