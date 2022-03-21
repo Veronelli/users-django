@@ -19,12 +19,14 @@ class ProfileApiMiddleware:
             try:
                 token = request.headers['Token']
                 id_token = jwt.decode(token,self.secret_key,algorithms=['HS256'])['id']
-                if UserProfile.objects.filter(id=id_token).exists:
-                    return response
-
+                if not UserProfile.objects.filter(id=id_token).exists:
+                    return JsonResponse({"message":"Usuario no encotrado"},status=401)
             except KeyError as ex:
-                return JsonResponse({"message":"Se Necesita un token valido"})
+                return JsonResponse({"message":"Se Necesita un token valido"},status=401)
             except jwt.exceptions.DecodeError:
-                return JsonResponse({"message":"El token no es valido"})
+                return JsonResponse({"message":"El token no es valido"},status=401)
+            except jwt.exceptions.ExpiredSignatureError:
+                return JsonResponse({"message":"El token expiró"},status=401)
+        return response
     
     
