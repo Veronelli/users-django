@@ -25,13 +25,13 @@ urlpatterns = [
     url(r'^$', schema_view)
 ]
 
+def server_status(request):
+    return JsonResponse({"server_connection": "Online","server_status": True})
+
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all().order_by('name')
     serializer_class = UserProfileSerializer
-    
-    def hola(request):
-        return JsonResponse({"Hello":"Hello"})
     
 class AreaViewSet(viewsets.ModelViewSet):
     queryset = Area.objects.all().order_by('area')
