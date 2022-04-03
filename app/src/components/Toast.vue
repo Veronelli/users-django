@@ -31,13 +31,13 @@ p {
 </style>
 
 <script >
-import axios from 'axios'
-
+import ServerConnection from '../services/server-connection.service'
+const serviceServer = new ServerConnection
 export default {
     name: 'ComToast',
     async mounted() {
         this.server_status = await this.getServerStatus();
-        console.log(this.server_status.server_status)
+        
         if(this.server_status.server_status == true){
             this.msg = "Connection was successfully"
         }
@@ -47,15 +47,7 @@ export default {
     },
     methods: {
         async getServerStatus() {
-            try {
-                const json = await axios
-                    .get('http://localhost:8000/api/status/');
-                return json.data;
-            }
-            catch (e) {
-                return { "server_connection": "offline", "server_status": false }
-            }
-
+            return serviceServer.verifyConnection()
         },
 
     },
